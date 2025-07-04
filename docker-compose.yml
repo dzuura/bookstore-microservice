@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5432:5432"
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "50051:50051"
+    depends_on:
+      - postgres
