@@ -7,7 +7,7 @@ import (
 )
 
 func InitDB() *sql.DB {
-	db, err := sql.Open("postgres", "postgres://user:pass@postgres:5432/userdb?sslmode=disable")
+	db, err := sql.Open("postgres", "postgres://postgres:superpostgres@localhost:5432/userdb?sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
