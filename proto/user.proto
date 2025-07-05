@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package user;
 
+option go_package = "github.com/dzuura/bookstore-microservice/user-service/proto;userpb";
+
 service UserService {
   rpc GetUser (UserRequest) returns (UserResponse);
 }
