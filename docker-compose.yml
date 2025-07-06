@@ -14,3 +14,10 @@ services:
       - "50051:50051"
     depends_on:
       - postgres
+
+  book-service:
+    build: ./book-service
+    ports:
+      - "50052:50052"
+    depends_on:
+      - postgres
