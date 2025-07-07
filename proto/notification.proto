@@ -1,1 +1,12 @@
-// Notification service proto placeholder
+syntax = "proto3";
+
+package notification;
+
+option go_package = "github.com/dzuura/bookstore-microservice/notification-service/proto;notificationpb";
+
+message OrderNotification {
+  int32 order_id = 1;
+  int32 user_id = 2;
+  int32 book_id = 3;
+  int32 quantity = 4;
+}

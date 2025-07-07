@@ -12,7 +12,6 @@ import (
 )
 
 func (s *Server) PlaceOrder(ctx context.Context, req *pb.OrderRequest) (*pb.OrderResponse, error) {
-    // 🔍 Validasi user dan book
     user, err := grpcclients.GetUserInfo(req.UserId)
     if err != nil {
         return nil, fmt.Errorf("user not found")
@@ -35,7 +34,6 @@ func (s *Server) PlaceOrder(ctx context.Context, req *pb.OrderRequest) (*pb.Orde
         return nil, err
     }
 
-    // 📣 Publish to NATS
     conn, err := nats.Connect("nats://nats:4222")
     if err == nil {
         notification := notificationpb.OrderNotification{
